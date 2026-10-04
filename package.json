@@ -1,0 +1,49 @@
+{
+  "name": "feasibility-report-check",
+  "version": "1.0.0",
+  "description": "Checks a software feasibility study report written in Markdown, one file or a folder of files: a verdict of go, go with changes or stop, a section for each feasibility angle (technical, financial, operational, schedule, legal) with a rating, risks with a response and an owner, assumptions with untested ones flagged, a cost section, cost and time given as ranges, results for a prototype that is mentioned, and next steps. Text, JSON and GitHub annotation output, exit codes for a pipeline, no dependencies.",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "bin": {
+    "feasibility-report-check": "bin/feasibility-report-check.js"
+  },
+  "files": [
+    "bin",
+    "src",
+    "docs",
+    "examples",
+    "research",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node --test \"test/*.test.js\"",
+    "test:coverage": "node --test --experimental-test-coverage \"test/*.test.js\"",
+    "check": "node tools/check.mjs",
+    "example": "node tools/example.mjs"
+  },
+  "keywords": [
+    "feasibility-study",
+    "software-feasibility",
+    "report",
+    "markdown",
+    "linter",
+    "project-planning",
+    "risk",
+    "ci",
+    "cli"
+  ],
+  "author": "INNERLUXES <info@innerluxes.dev>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/INNERLUXES/feasibility-report-check.git"
+  },
+  "homepage": "https://innerluxes.dev/software-development/feasibility-study"
+}
