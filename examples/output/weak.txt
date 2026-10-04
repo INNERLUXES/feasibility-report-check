@@ -1,0 +1,79 @@
+feasibility-report-check: examples/weak/feasibility-report.md
+input: examples/weak/feasibility-report.md (1 file, read as one report)
+config: built-in defaults: angles technical, financial, operational, schedule, legal; minimum severity notice
+rules: missing-verdict (error); unknown-verdict (error); conflicting-verdict (error); missing-angle (error); missing-rating (error); unknown-rating (warning); missing-risks (error); risk-without-response (error); risk-without-owner (error); missing-assumptions (error); untested-assumption (warning); missing-cost (error); single-estimate (warning); prototype-without-results (warning); missing-next-steps (error)
+findings: 18 (12 error, 6 warning)
+
+Findings (18)
+
+  ERROR    missing-angle              examples/weak/feasibility-report.md
+           no section for the financial angle: no heading names "financial", "economic", "economics" or "cost benefit"
+
+  ERROR    missing-angle              examples/weak/feasibility-report.md
+           no section for the legal angle: no heading names "legal", "compliance", "regulatory" or "regulation"
+
+  ERROR    missing-cost               examples/weak/feasibility-report.md
+           no cost section: no heading names "cost", "costs", "budget", "investment" or 2 more
+
+  ERROR    missing-next-steps         examples/weak/feasibility-report.md
+           no next steps: no heading names "next steps", "next step", "action plan", "actions" or 3 more
+
+  ERROR    missing-rating             examples/weak/feasibility-report.md:12:4
+           the technical section "Technical feasibility" has no rating, such as "Rating: feasible", "RAG: amber" or a rating table row
+
+  ERROR    missing-rating             examples/weak/feasibility-report.md:22:1
+           the rating of the schedule angle is "TBD", which says nothing; rate it, such as "Rating: feasible"
+
+  ERROR    risk-without-response      examples/weak/feasibility-report.md:28:3
+           the risk "The API may not support every portal feature" has no response: none of "accept", "reduce", "mitigate", "avoid", "transfer" or "design around"
+
+  ERROR    risk-without-owner         examples/weak/feasibility-report.md:28:3
+           the risk "The API may not support every portal feature" has no owner, such as "Owner: <a name or a role>"
+
+  ERROR    risk-without-response      examples/weak/feasibility-report.md:29:3
+           the risk "The key developer may leave. Owner: TBD" has no response: none of "accept", "reduce", "mitigate", "avoid", "transfer" or "design around"
+
+  ERROR    risk-without-owner         examples/weak/feasibility-report.md:29:3
+           the owner of the risk "The key developer may leave. Owner: TBD" is "TBD", which names no one
+
+  ERROR    conflicting-verdict        examples/weak/feasibility-report.md:40:1
+           the report gives 2 different verdicts: go on line 3 and stop here
+
+  ERROR    unknown-verdict            examples/weak/feasibility-report.md:42:1
+           the verdict "maybe later in the quarter" is not "go", "go with changes" or "stop"; start the line with one of them, or write it in bold
+
+  WARNING  prototype-without-results  examples/weak/feasibility-report.md:8:1
+           the report mentions a proof of concept but has no section for its results or limits, such as "Prototype results"
+
+  WARNING  single-estimate            examples/weak/feasibility-report.md:10:9
+           the estimate "$180,000" is one number; give a range, such as a low and a high figure
+
+  WARNING  unknown-rating             examples/weak/feasibility-report.md:18:1
+           the rating "probably fine" of the operational angle is not one of "feasible", "not feasible", "infeasible", "feasible with conditions", "conditionally feasible", "partly feasible" or 9 more
+
+  WARNING  single-estimate            examples/weak/feasibility-report.md:24:23
+           the estimate "16 weeks" is one number; give a range, such as a low and a high figure
+
+  WARNING  untested-assumption        examples/weak/feasibility-report.md:34:3
+           the assumption "Customers want a new portal (untested)" is untested; test it, or say how and when it will be tested
+
+  WARNING  untested-assumption        examples/weak/feasibility-report.md:35:3
+           the assumption "The mobile API is stable. Status: open" is open; test it, or say how and when it will be tested
+
+Report: examples/weak/feasibility-report.md ("Feasibility study: customer portal rebuild")
+
+  verdict      go, line 3
+  technical    "Technical feasibility", line 12: no rating
+  financial    missing
+  operational  "Operational feasibility", line 16: the rating "probably fine" is not a rating word
+  schedule     "Schedule", line 20: no rating
+  legal        missing
+  risks        "Risks", line 26: 3 risks, 2 without a response, 2 without an owner
+  assumptions  "Assumptions", line 32: 3 assumptions, 2 untested
+  cost         missing
+  prototype    "proof of concept" mentioned, line 8; no results section
+  next steps   missing
+
+This report checks the structure of the feasibility report only: its verdict, its sections, its ratings, its risks, its assumptions and the form of its estimates. It does not judge whether the project is feasible or whether the numbers are right.
+
+RESULT: FAIL - 12 errors (and 6 warnings)

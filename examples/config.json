@@ -1,0 +1,6 @@
+{
+  "name": "Delivery platform review rules",
+  "aliases": { "security": ["security", "information security"] },
+  "angles": { "add": ["security"] },
+  "rules": { "singleEstimate": "error" }
+}

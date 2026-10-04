@@ -1,0 +1,30 @@
+feasibility-report-check: examples/good
+input: examples/good (4 files, read as one report)
+config: examples/config.json (Delivery platform review rules): angles technical, financial, operational, schedule, legal, security; minimum severity notice
+rules: missing-verdict (error); unknown-verdict (error); conflicting-verdict (error); missing-angle (error); missing-rating (error); unknown-rating (warning); missing-risks (error); risk-without-response (error); risk-without-owner (error); missing-assumptions (error); untested-assumption (warning); missing-cost (error); single-estimate (error); prototype-without-results (warning); missing-next-steps (error)
+findings: 0
+
+Findings (0)
+
+  none
+
+Report: examples/good ("Feasibility study: parcel locker booking for Harbour Lane Couriers")
+
+  verdict      go with changes, 01-summary.md:7
+  technical    "Technical feasibility", 02-feasibility.md:1: rated feasible
+  financial    "Financial feasibility", 02-feasibility.md:20: rated feasible with conditions
+  operational  "Operational feasibility", 02-feasibility.md:27: rated amber
+  schedule     "Schedule feasibility", 02-feasibility.md:34: rated feasible
+  legal        "Legal and compliance", 02-feasibility.md:41: rated at risk
+  security     "Security feasibility", 02-feasibility.md:48: rated feasible
+  risks        "Risks", 03-risks-and-assumptions.md:1: 4 risks, 0 without a response, 0 without an owner
+  assumptions  "Assumptions", 03-risks-and-assumptions.md:10: 3 assumptions, 0 untested
+  cost         "Cost estimate", 04-cost-and-plan.md:1: 5 lines with an amount, 0 with one number only
+  prototype    "prototype" mentioned, 02-feasibility.md:6; results in "Prototype results", 02-feasibility.md:9
+  next steps   "Next steps", 04-cost-and-plan.md:12
+
+note: not read as part of the report: README.md
+
+This report checks the structure of the feasibility report only: its verdict, its sections, its ratings, its risks, its assumptions and the form of its estimates. It does not judge whether the project is feasible or whether the numbers are right.
+
+RESULT: PASS - no error

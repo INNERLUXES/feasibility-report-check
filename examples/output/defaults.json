@@ -1,0 +1,270 @@
+{
+  "name": "built-in defaults",
+  "angles": [
+    "technical",
+    "financial",
+    "operational",
+    "schedule",
+    "legal"
+  ],
+  "aliases": {
+    "technical": [
+      "technical",
+      "technology",
+      "technological"
+    ],
+    "financial": [
+      "financial",
+      "economic",
+      "economics",
+      "cost benefit"
+    ],
+    "operational": [
+      "operational",
+      "operations",
+      "organisational",
+      "organizational"
+    ],
+    "schedule": [
+      "schedule",
+      "scheduling",
+      "timeline",
+      "time to deliver"
+    ],
+    "legal": [
+      "legal",
+      "compliance",
+      "regulatory",
+      "regulation"
+    ]
+  },
+  "headings": {
+    "verdict": [
+      "verdict",
+      "recommendation",
+      "overall verdict",
+      "overall recommendation",
+      "final verdict",
+      "final recommendation",
+      "go no go",
+      "go no go decision",
+      "go no go recommendation"
+    ],
+    "feasibility": [
+      "feasibility",
+      "feasible",
+      "viability",
+      "assessment",
+      "analysis"
+    ],
+    "risks": [
+      "risk",
+      "risks"
+    ],
+    "assumptions": [
+      "assumption",
+      "assumptions"
+    ],
+    "cost": [
+      "cost",
+      "costs",
+      "budget",
+      "investment",
+      "tco",
+      "total cost of ownership"
+    ],
+    "estimates": [
+      "estimate",
+      "estimates",
+      "effort",
+      "timeline",
+      "duration",
+      "schedule"
+    ],
+    "results": [
+      "result",
+      "results",
+      "finding",
+      "findings",
+      "limit",
+      "limits",
+      "limitation",
+      "limitations",
+      "learnings",
+      "outcome",
+      "outcomes"
+    ],
+    "nextSteps": [
+      "next steps",
+      "next step",
+      "action plan",
+      "actions",
+      "way forward",
+      "follow up",
+      "follow ups"
+    ]
+  },
+  "words": {
+    "verdictLabels": [
+      "verdict",
+      "overall verdict",
+      "final verdict",
+      "go no go"
+    ],
+    "recommendationLabels": [
+      "recommendation",
+      "overall recommendation",
+      "final recommendation"
+    ],
+    "ratingLabels": [
+      "rating",
+      "feasibility",
+      "assessment",
+      "rag",
+      "rag status",
+      "status",
+      "score"
+    ],
+    "ratings": [
+      "feasible",
+      "not feasible",
+      "infeasible",
+      "feasible with conditions",
+      "conditionally feasible",
+      "partly feasible",
+      "partially feasible",
+      "at risk",
+      "high",
+      "medium",
+      "low",
+      "red",
+      "amber",
+      "yellow",
+      "green"
+    ],
+    "responses": [
+      "accept",
+      "reduce",
+      "mitigate",
+      "avoid",
+      "transfer",
+      "design around",
+      "designed around",
+      "designing around"
+    ],
+    "ownerLabels": [
+      "owner",
+      "owners",
+      "risk owner",
+      "owned by",
+      "responsible",
+      "accountable"
+    ],
+    "emptyValues": [
+      "tbd",
+      "tba",
+      "todo",
+      "none",
+      "n a",
+      "na",
+      "unknown",
+      "unassigned",
+      "nobody",
+      "no one",
+      "not assigned"
+    ],
+    "statusLabels": [
+      "status",
+      "state",
+      "validation",
+      "validated",
+      "tested",
+      "verified"
+    ],
+    "openStatuses": [
+      "untested",
+      "open",
+      "unverified",
+      "unvalidated",
+      "not tested",
+      "not verified",
+      "not validated",
+      "not yet tested",
+      "pending",
+      "unknown"
+    ],
+    "openWords": [
+      "untested",
+      "unverified",
+      "unvalidated"
+    ],
+    "prototype": [
+      "prototype",
+      "proof of concept",
+      "poc",
+      "technical spike"
+    ],
+    "exact": [
+      "fixed",
+      "quoted",
+      "actual",
+      "actuals",
+      "spent",
+      "paid",
+      "invoiced"
+    ],
+    "estimateLabels": [
+      "cost",
+      "costs",
+      "budget",
+      "estimate",
+      "effort",
+      "duration",
+      "timeline"
+    ]
+  },
+  "verdicts": {
+    "go": [
+      "go",
+      "proceed",
+      "go ahead"
+    ],
+    "change": [
+      "go with changes",
+      "go with conditions",
+      "conditional go",
+      "proceed with changes",
+      "change",
+      "changes"
+    ],
+    "stop": [
+      "stop",
+      "no go",
+      "nogo",
+      "do not proceed",
+      "dont proceed",
+      "do not go ahead"
+    ]
+  },
+  "ignoreFiles": [
+    "README.md"
+  ],
+  "rules": {
+    "missingVerdict": "error",
+    "unknownVerdict": "error",
+    "conflictingVerdict": "error",
+    "missingAngle": "error",
+    "missingRating": "error",
+    "unknownRating": "warning",
+    "missingRisks": "error",
+    "riskWithoutResponse": "error",
+    "riskWithoutOwner": "error",
+    "missingAssumptions": "error",
+    "untestedAssumption": "warning",
+    "missingCost": "error",
+    "singleEstimate": "warning",
+    "prototypeWithoutResults": "warning",
+    "missingNextSteps": "error"
+  },
+  "minSeverity": "notice"
+}

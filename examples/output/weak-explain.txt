@@ -1,0 +1,125 @@
+feasibility-report-check: examples/weak/feasibility-report.md
+input: examples/weak/feasibility-report.md (1 file, read as one report)
+config: built-in defaults: angles technical, financial, operational, schedule, legal; minimum severity notice
+rules: missing-verdict (error); unknown-verdict (error); conflicting-verdict (error); missing-angle (error); missing-rating (error); unknown-rating (warning); missing-risks (error); risk-without-response (error); risk-without-owner (error); missing-assumptions (error); untested-assumption (warning); missing-cost (error); single-estimate (warning); prototype-without-results (warning); missing-next-steps (error)
+findings: 18 (12 error, 6 warning)
+
+Findings (18)
+
+  ERROR    missing-angle              examples/weak/feasibility-report.md
+           no section for the financial angle: no heading names "financial", "economic", "economics" or "cost benefit"
+           rule: an angle of the list (technical, financial, operational, schedule, legal) that no heading other than the title names by one of its aliases
+           basis: a common way to frame a feasibility study is five areas, technical, economic, legal, operational and scheduling, each with its own question to answer (Feasibility study (Wikipedia), the TELOS areas, https://en.wikipedia.org/wiki/Feasibility_study)
+           basis: discovery looks at constraints such as legislation, contracts, legacy technology and existing processes, and a hard constraint can be a reason to stop (How the discovery phase works (GOV.UK Service Manual), https://www.gov.uk/service-manual/agile-delivery/how-the-discovery-phase-works)
+
+  ERROR    missing-angle              examples/weak/feasibility-report.md
+           no section for the legal angle: no heading names "legal", "compliance", "regulatory" or "regulation"
+           rule: an angle of the list (technical, financial, operational, schedule, legal) that no heading other than the title names by one of its aliases
+           basis: a common way to frame a feasibility study is five areas, technical, economic, legal, operational and scheduling, each with its own question to answer (Feasibility study (Wikipedia), the TELOS areas, https://en.wikipedia.org/wiki/Feasibility_study)
+           basis: discovery looks at constraints such as legislation, contracts, legacy technology and existing processes, and a hard constraint can be a reason to stop (How the discovery phase works (GOV.UK Service Manual), https://www.gov.uk/service-manual/agile-delivery/how-the-discovery-phase-works)
+
+  ERROR    missing-cost               examples/weak/feasibility-report.md
+           no cost section: no heading names "cost", "costs", "budget", "investment" or 2 more
+           rule: a report with no heading that names "cost", "costs", "budget", "investment" or 2 more, or whose cost sections hold no text
+           basis: whether to continue depends partly on cost: what the work would cost set against the improvement it could make (How the discovery phase works (GOV.UK Service Manual), https://www.gov.uk/service-manual/agile-delivery/how-the-discovery-phase-works)
+           basis: appraisal weighs the costs, benefits and risks of the options, corrects for optimism bias and shows how the answer moves when the inputs are uncertain, which one figure cannot show (The Green Book: appraisal and evaluation in central government (HM Treasury), https://www.gov.uk/government/publications/the-green-book-appraisal-and-evaluation-in-central-government)
+
+  ERROR    missing-next-steps         examples/weak/feasibility-report.md
+           no next steps: no heading names "next steps", "next step", "action plan", "actions" or 3 more
+           rule: a report with no heading that names "next steps", "next step", "action plan", "actions" or 3 more, or whose next steps sections hold no text
+           basis: a team that decides to move on should know what it will test first, who it needs and how it will measure success (How the discovery phase works (GOV.UK Service Manual), https://www.gov.uk/service-manual/agile-delivery/how-the-discovery-phase-works)
+
+  ERROR    missing-rating             examples/weak/feasibility-report.md:12:4
+           the technical section "Technical feasibility" has no rating, such as "Rating: feasible", "RAG: amber" or a rating table row
+           rule: the section of an angle with no rating: no line labelled "rating", "feasibility", "assessment" or 4 more, no table column with such a header, and no row of a rating table anywhere in the report that names the angle, or a rating that says nothing ("tbd", "tba" or 9 more)
+           basis: a common way to frame a feasibility study is five areas, technical, economic, legal, operational and scheduling, each with its own question to answer (Feasibility study (Wikipedia), the TELOS areas, https://en.wikipedia.org/wiki/Feasibility_study)
+           the tool's own choice: a rating is read from a labelled line, a table column or the heading itself; the rating words are the tool's own
+
+  ERROR    missing-rating             examples/weak/feasibility-report.md:22:1
+           the rating of the schedule angle is "TBD", which says nothing; rate it, such as "Rating: feasible"
+           rule: the section of an angle with no rating: no line labelled "rating", "feasibility", "assessment" or 4 more, no table column with such a header, and no row of a rating table anywhere in the report that names the angle, or a rating that says nothing ("tbd", "tba" or 9 more)
+           basis: a common way to frame a feasibility study is five areas, technical, economic, legal, operational and scheduling, each with its own question to answer (Feasibility study (Wikipedia), the TELOS areas, https://en.wikipedia.org/wiki/Feasibility_study)
+           the tool's own choice: a rating is read from a labelled line, a table column or the heading itself; the rating words are the tool's own
+
+  ERROR    risk-without-response      examples/weak/feasibility-report.md:28:3
+           the risk "The API may not support every portal feature" has no response: none of "accept", "reduce", "mitigate", "avoid", "transfer" or "design around"
+           rule: a risk whose text holds none of "accept", "reduce", "mitigate", "avoid", "transfer", "design around" or 2 more, in any form of the last word ("mitigated", "mitigation")
+           basis: a risk is treated by a chosen response, such as avoiding it, retaining it by an informed decision, changing its likelihood or its consequences, or sharing it (The Orange Book: management of risk, principles and concepts (HM Treasury), https://www.gov.uk/government/publications/orange-book)
+           the tool's own choice: the response words are the tool's own short list of the usual ways to treat a risk
+
+  ERROR    risk-without-owner         examples/weak/feasibility-report.md:28:3
+           the risk "The API may not support every portal feature" has no owner, such as "Owner: <a name or a role>"
+           rule: a risk with no value for "owner", "owners", "risk owner" or 3 more, as a labelled line or a table column, or whose value names no one ("tbd", "tba" or 9 more)
+           basis: a plan to treat a risk says who is accountable and who is responsible for carrying it out (The Orange Book: management of risk, principles and concepts (HM Treasury), https://www.gov.uk/government/publications/orange-book)
+
+  ERROR    risk-without-response      examples/weak/feasibility-report.md:29:3
+           the risk "The key developer may leave. Owner: TBD" has no response: none of "accept", "reduce", "mitigate", "avoid", "transfer" or "design around"
+           rule: a risk whose text holds none of "accept", "reduce", "mitigate", "avoid", "transfer", "design around" or 2 more, in any form of the last word ("mitigated", "mitigation")
+           basis: a risk is treated by a chosen response, such as avoiding it, retaining it by an informed decision, changing its likelihood or its consequences, or sharing it (The Orange Book: management of risk, principles and concepts (HM Treasury), https://www.gov.uk/government/publications/orange-book)
+           the tool's own choice: the response words are the tool's own short list of the usual ways to treat a risk
+
+  ERROR    risk-without-owner         examples/weak/feasibility-report.md:29:3
+           the owner of the risk "The key developer may leave. Owner: TBD" is "TBD", which names no one
+           rule: a risk with no value for "owner", "owners", "risk owner" or 3 more, as a labelled line or a table column, or whose value names no one ("tbd", "tba" or 9 more)
+           basis: a plan to treat a risk says who is accountable and who is responsible for carrying it out (The Orange Book: management of risk, principles and concepts (HM Treasury), https://www.gov.uk/government/publications/orange-book)
+
+  ERROR    conflicting-verdict        examples/weak/feasibility-report.md:40:1
+           the report gives 2 different verdicts: go on line 3 and stop here
+           rule: two verdicts in one report that are not the same: go and stop, for example
+           basis: discovery ends when the team has decided whether to move on to the next phase, and stopping at that point is a valid result that saves time and money (How the discovery phase works (GOV.UK Service Manual), https://www.gov.uk/service-manual/agile-delivery/how-the-discovery-phase-works)
+
+  ERROR    unknown-verdict            examples/weak/feasibility-report.md:42:1
+           the verdict "maybe later in the quarter" is not "go", "go with changes" or "stop"; start the line with one of them, or write it in bold
+           rule: a verdict heading whose first line, or a line labelled "verdict", "overall verdict" or 2 more, that does not start with a verdict phrase (15 phrases) and holds none in bold
+           basis: discovery ends when the team has decided whether to move on to the next phase, and stopping at that point is a valid result that saves time and money (How the discovery phase works (GOV.UK Service Manual), https://www.gov.uk/service-manual/agile-delivery/how-the-discovery-phase-works)
+
+  WARNING  prototype-without-results  examples/weak/feasibility-report.md:8:1
+           the report mentions a proof of concept but has no section for its results or limits, such as "Prototype results"
+           rule: a report that mentions "prototype", "proof of concept", "poc" or "technical spike" outside its next steps, with no heading that names "result", "results", "finding", "findings" or 7 more together with a prototype, in itself or in a heading above it
+           basis: prototypes are built to learn and their code is expected to be thrown away, so what counts is what a prototype showed and what it could not show (How the alpha phase works (GOV.UK Service Manual), https://www.gov.uk/service-manual/agile-delivery/how-the-alpha-phase-works)
+           the tool's own choice: a prototype mentioned in the next steps is still to be built, so those mentions do not count
+
+  WARNING  single-estimate            examples/weak/feasibility-report.md:10:9
+           the estimate "$180,000" is one number; give a range, such as a low and a high figure
+           rule: a line in a cost or estimate section, or labelled "cost", "costs", "budget" or 4 more, that holds an amount of money or time and no range, and none of "fixed", "quoted", "actual" or 4 more
+           basis: appraisal weighs the costs, benefits and risks of the options, corrects for optimism bias and shows how the answer moves when the inputs are uncertain, which one figure cannot show (The Green Book: appraisal and evaluation in central government (HM Treasury), https://www.gov.uk/government/publications/the-green-book-appraisal-and-evaluation-in-central-government)
+           the tool's own choice: a line that holds a word such as "fixed" or "paid" states a known figure, not an estimate, and is not checked
+
+  WARNING  unknown-rating             examples/weak/feasibility-report.md:18:1
+           the rating "probably fine" of the operational angle is not one of "feasible", "not feasible", "infeasible", "feasible with conditions", "conditionally feasible", "partly feasible" or 9 more
+           rule: the section of an angle whose only ratings do not start with one of "feasible", "not feasible", "infeasible", "feasible with conditions", "conditionally feasible", "partly feasible" or 9 more
+           basis: a common way to frame a feasibility study is five areas, technical, economic, legal, operational and scheduling, each with its own question to answer (Feasibility study (Wikipedia), the TELOS areas, https://en.wikipedia.org/wiki/Feasibility_study)
+
+  WARNING  single-estimate            examples/weak/feasibility-report.md:24:23
+           the estimate "16 weeks" is one number; give a range, such as a low and a high figure
+           rule: a line in a cost or estimate section, or labelled "cost", "costs", "budget" or 4 more, that holds an amount of money or time and no range, and none of "fixed", "quoted", "actual" or 4 more
+           basis: appraisal weighs the costs, benefits and risks of the options, corrects for optimism bias and shows how the answer moves when the inputs are uncertain, which one figure cannot show (The Green Book: appraisal and evaluation in central government (HM Treasury), https://www.gov.uk/government/publications/the-green-book-appraisal-and-evaluation-in-central-government)
+           the tool's own choice: a line that holds a word such as "fixed" or "paid" states a known figure, not an estimate, and is not checked
+
+  WARNING  untested-assumption        examples/weak/feasibility-report.md:34:3
+           the assumption "Customers want a new portal (untested)" is untested; test it, or say how and when it will be tested
+           rule: an assumption whose status ("status", "state" or 4 more, as a labelled line, a table column or a word in brackets) starts with "untested", "open", "unverified", "unvalidated" or 6 more, or whose text holds "untested", "unverified" or "unvalidated"
+           basis: the next phase is spent testing the riskiest assumptions, so an assumption that has not been tested yet is work still to do (How the alpha phase works (GOV.UK Service Manual), https://www.gov.uk/service-manual/agile-delivery/how-the-alpha-phase-works)
+
+  WARNING  untested-assumption        examples/weak/feasibility-report.md:35:3
+           the assumption "The mobile API is stable. Status: open" is open; test it, or say how and when it will be tested
+           rule: an assumption whose status ("status", "state" or 4 more, as a labelled line, a table column or a word in brackets) starts with "untested", "open", "unverified", "unvalidated" or 6 more, or whose text holds "untested", "unverified" or "unvalidated"
+           basis: the next phase is spent testing the riskiest assumptions, so an assumption that has not been tested yet is work still to do (How the alpha phase works (GOV.UK Service Manual), https://www.gov.uk/service-manual/agile-delivery/how-the-alpha-phase-works)
+
+Report: examples/weak/feasibility-report.md ("Feasibility study: customer portal rebuild")
+
+  verdict      go, line 3
+  technical    "Technical feasibility", line 12: no rating
+  financial    missing
+  operational  "Operational feasibility", line 16: the rating "probably fine" is not a rating word
+  schedule     "Schedule", line 20: no rating
+  legal        missing
+  risks        "Risks", line 26: 3 risks, 2 without a response, 2 without an owner
+  assumptions  "Assumptions", line 32: 3 assumptions, 2 untested
+  cost         missing
+  prototype    "proof of concept" mentioned, line 8; no results section
+  next steps   missing
+
+This report checks the structure of the feasibility report only: its verdict, its sections, its ratings, its risks, its assumptions and the form of its estimates. It does not judge whether the project is feasible or whether the numbers are right.
+
+RESULT: FAIL - 12 errors (and 6 warnings)

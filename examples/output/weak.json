@@ -1,0 +1,644 @@
+{
+  "tool": "feasibility-report-check",
+  "version": "1.0.0",
+  "input": {
+    "path": "examples/weak/feasibility-report.md",
+    "kind": "file",
+    "mode": "one report",
+    "files": [
+      "examples/weak/feasibility-report.md"
+    ],
+    "ignored": [],
+    "subfolders": 0,
+    "symbolicLinks": 0
+  },
+  "config": {
+    "file": null,
+    "name": null,
+    "angles": [
+      {
+        "id": "technical",
+        "title": "Technical",
+        "aliases": [
+          "technical",
+          "technology",
+          "technological"
+        ],
+        "required": true
+      },
+      {
+        "id": "financial",
+        "title": "Financial",
+        "aliases": [
+          "financial",
+          "economic",
+          "economics",
+          "cost benefit"
+        ],
+        "required": true
+      },
+      {
+        "id": "operational",
+        "title": "Operational",
+        "aliases": [
+          "operational",
+          "operations",
+          "organisational",
+          "organizational"
+        ],
+        "required": true
+      },
+      {
+        "id": "schedule",
+        "title": "Schedule",
+        "aliases": [
+          "schedule",
+          "scheduling",
+          "timeline",
+          "time to deliver"
+        ],
+        "required": true
+      },
+      {
+        "id": "legal",
+        "title": "Legal",
+        "aliases": [
+          "legal",
+          "compliance",
+          "regulatory",
+          "regulation"
+        ],
+        "required": true
+      }
+    ],
+    "required": [
+      "technical",
+      "financial",
+      "operational",
+      "schedule",
+      "legal"
+    ],
+    "minSeverity": "notice",
+    "rules": [
+      {
+        "id": "missing-verdict",
+        "key": "missingVerdict",
+        "level": "error",
+        "rule": "a report in which no verdict heading (\"verdict\", \"recommendation\" or 7 more) and no line labelled \"verdict\", \"overall verdict\" or 5 more gives go, go with changes or stop"
+      },
+      {
+        "id": "unknown-verdict",
+        "key": "unknownVerdict",
+        "level": "error",
+        "rule": "a verdict heading whose first line, or a line labelled \"verdict\", \"overall verdict\" or 2 more, that does not start with a verdict phrase (15 phrases) and holds none in bold"
+      },
+      {
+        "id": "conflicting-verdict",
+        "key": "conflictingVerdict",
+        "level": "error",
+        "rule": "two verdicts in one report that are not the same: go and stop, for example"
+      },
+      {
+        "id": "missing-angle",
+        "key": "missingAngle",
+        "level": "error",
+        "rule": "an angle of the list (technical, financial, operational, schedule, legal) that no heading other than the title names by one of its aliases"
+      },
+      {
+        "id": "missing-rating",
+        "key": "missingRating",
+        "level": "error",
+        "rule": "the section of an angle with no rating: no line labelled \"rating\", \"feasibility\", \"assessment\" or 4 more, no table column with such a header, and no row of a rating table anywhere in the report that names the angle, or a rating that says nothing (\"tbd\", \"tba\" or 9 more)"
+      },
+      {
+        "id": "unknown-rating",
+        "key": "unknownRating",
+        "level": "warning",
+        "rule": "the section of an angle whose only ratings do not start with one of \"feasible\", \"not feasible\", \"infeasible\", \"feasible with conditions\", \"conditionally feasible\", \"partly feasible\" or 9 more"
+      },
+      {
+        "id": "missing-risks",
+        "key": "missingRisks",
+        "level": "error",
+        "rule": "a report with no heading that names \"risk\" or \"risks\", or whose risk sections list no risk as a list item, a table row or a subheading"
+      },
+      {
+        "id": "risk-without-response",
+        "key": "riskWithoutResponse",
+        "level": "error",
+        "rule": "a risk whose text holds none of \"accept\", \"reduce\", \"mitigate\", \"avoid\", \"transfer\", \"design around\" or 2 more, in any form of the last word (\"mitigated\", \"mitigation\")"
+      },
+      {
+        "id": "risk-without-owner",
+        "key": "riskWithoutOwner",
+        "level": "error",
+        "rule": "a risk with no value for \"owner\", \"owners\", \"risk owner\" or 3 more, as a labelled line or a table column, or whose value names no one (\"tbd\", \"tba\" or 9 more)"
+      },
+      {
+        "id": "missing-assumptions",
+        "key": "missingAssumptions",
+        "level": "error",
+        "rule": "a report with no heading that names \"assumption\" or \"assumptions\", or whose assumption sections list no assumption"
+      },
+      {
+        "id": "untested-assumption",
+        "key": "untestedAssumption",
+        "level": "warning",
+        "rule": "an assumption whose status (\"status\", \"state\" or 4 more, as a labelled line, a table column or a word in brackets) starts with \"untested\", \"open\", \"unverified\", \"unvalidated\" or 6 more, or whose text holds \"untested\", \"unverified\" or \"unvalidated\""
+      },
+      {
+        "id": "missing-cost",
+        "key": "missingCost",
+        "level": "error",
+        "rule": "a report with no heading that names \"cost\", \"costs\", \"budget\", \"investment\" or 2 more, or whose cost sections hold no text"
+      },
+      {
+        "id": "single-estimate",
+        "key": "singleEstimate",
+        "level": "warning",
+        "rule": "a line in a cost or estimate section, or labelled \"cost\", \"costs\", \"budget\" or 4 more, that holds an amount of money or time and no range, and none of \"fixed\", \"quoted\", \"actual\" or 4 more"
+      },
+      {
+        "id": "prototype-without-results",
+        "key": "prototypeWithoutResults",
+        "level": "warning",
+        "rule": "a report that mentions \"prototype\", \"proof of concept\", \"poc\" or \"technical spike\" outside its next steps, with no heading that names \"result\", \"results\", \"finding\", \"findings\" or 7 more together with a prototype, in itself or in a heading above it"
+      },
+      {
+        "id": "missing-next-steps",
+        "key": "missingNextSteps",
+        "level": "error",
+        "rule": "a report with no heading that names \"next steps\", \"next step\", \"action plan\", \"actions\" or 3 more, or whose next steps sections hold no text"
+      }
+    ]
+  },
+  "reports": [
+    {
+      "path": "examples/weak/feasibility-report.md",
+      "files": [
+        "examples/weak/feasibility-report.md"
+      ],
+      "title": "Feasibility study: customer portal rebuild",
+      "verdict": {
+        "verdict": "go",
+        "name": "go",
+        "value": "go",
+        "file": "examples/weak/feasibility-report.md",
+        "line": 3
+      },
+      "angles": [
+        {
+          "id": "technical",
+          "title": "Technical",
+          "section": {
+            "text": "Technical feasibility",
+            "file": "examples/weak/feasibility-report.md",
+            "line": 12
+          },
+          "rating": null,
+          "unread": null
+        },
+        {
+          "id": "financial",
+          "title": "Financial",
+          "section": null,
+          "rating": null,
+          "unread": null
+        },
+        {
+          "id": "operational",
+          "title": "Operational",
+          "section": {
+            "text": "Operational feasibility",
+            "file": "examples/weak/feasibility-report.md",
+            "line": 16
+          },
+          "rating": null,
+          "unread": {
+            "value": "probably fine",
+            "file": "examples/weak/feasibility-report.md",
+            "line": 18
+          }
+        },
+        {
+          "id": "schedule",
+          "title": "Schedule",
+          "section": {
+            "text": "Schedule",
+            "file": "examples/weak/feasibility-report.md",
+            "line": 20
+          },
+          "rating": null,
+          "unread": null
+        },
+        {
+          "id": "legal",
+          "title": "Legal",
+          "section": null,
+          "rating": null,
+          "unread": null
+        }
+      ],
+      "risks": {
+        "sections": [
+          {
+            "text": "Risks",
+            "file": "examples/weak/feasibility-report.md",
+            "line": 26
+          }
+        ],
+        "items": 3,
+        "withoutResponse": 2,
+        "withoutOwner": 2
+      },
+      "assumptions": {
+        "sections": [
+          {
+            "text": "Assumptions",
+            "file": "examples/weak/feasibility-report.md",
+            "line": 32
+          }
+        ],
+        "items": 3,
+        "untested": 2
+      },
+      "cost": null,
+      "estimates": {
+        "lines": 2,
+        "single": 2
+      },
+      "prototype": {
+        "phrase": "proof of concept",
+        "file": "examples/weak/feasibility-report.md",
+        "line": 8,
+        "results": null
+      },
+      "nextSteps": null
+    }
+  ],
+  "findings": [
+    {
+      "rule": "missing-angle",
+      "level": "error",
+      "report": "examples/weak/feasibility-report.md",
+      "file": null,
+      "line": null,
+      "column": null,
+      "at": "examples/weak/feasibility-report.md",
+      "found": "no section for the financial angle: no heading names \"financial\", \"economic\", \"economics\" or \"cost benefit\"",
+      "basis": [
+        {
+          "text": "a common way to frame a feasibility study is five areas, technical, economic, legal, operational and scheduling, each with its own question to answer",
+          "source": "Feasibility study (Wikipedia), the TELOS areas",
+          "url": "https://en.wikipedia.org/wiki/Feasibility_study"
+        },
+        {
+          "text": "discovery looks at constraints such as legislation, contracts, legacy technology and existing processes, and a hard constraint can be a reason to stop",
+          "source": "How the discovery phase works (GOV.UK Service Manual)",
+          "url": "https://www.gov.uk/service-manual/agile-delivery/how-the-discovery-phase-works"
+        }
+      ],
+      "own": null
+    },
+    {
+      "rule": "missing-angle",
+      "level": "error",
+      "report": "examples/weak/feasibility-report.md",
+      "file": null,
+      "line": null,
+      "column": null,
+      "at": "examples/weak/feasibility-report.md",
+      "found": "no section for the legal angle: no heading names \"legal\", \"compliance\", \"regulatory\" or \"regulation\"",
+      "basis": [
+        {
+          "text": "a common way to frame a feasibility study is five areas, technical, economic, legal, operational and scheduling, each with its own question to answer",
+          "source": "Feasibility study (Wikipedia), the TELOS areas",
+          "url": "https://en.wikipedia.org/wiki/Feasibility_study"
+        },
+        {
+          "text": "discovery looks at constraints such as legislation, contracts, legacy technology and existing processes, and a hard constraint can be a reason to stop",
+          "source": "How the discovery phase works (GOV.UK Service Manual)",
+          "url": "https://www.gov.uk/service-manual/agile-delivery/how-the-discovery-phase-works"
+        }
+      ],
+      "own": null
+    },
+    {
+      "rule": "missing-cost",
+      "level": "error",
+      "report": "examples/weak/feasibility-report.md",
+      "file": null,
+      "line": null,
+      "column": null,
+      "at": "examples/weak/feasibility-report.md",
+      "found": "no cost section: no heading names \"cost\", \"costs\", \"budget\", \"investment\" or 2 more",
+      "basis": [
+        {
+          "text": "whether to continue depends partly on cost: what the work would cost set against the improvement it could make",
+          "source": "How the discovery phase works (GOV.UK Service Manual)",
+          "url": "https://www.gov.uk/service-manual/agile-delivery/how-the-discovery-phase-works"
+        },
+        {
+          "text": "appraisal weighs the costs, benefits and risks of the options, corrects for optimism bias and shows how the answer moves when the inputs are uncertain, which one figure cannot show",
+          "source": "The Green Book: appraisal and evaluation in central government (HM Treasury)",
+          "url": "https://www.gov.uk/government/publications/the-green-book-appraisal-and-evaluation-in-central-government"
+        }
+      ],
+      "own": null
+    },
+    {
+      "rule": "missing-next-steps",
+      "level": "error",
+      "report": "examples/weak/feasibility-report.md",
+      "file": null,
+      "line": null,
+      "column": null,
+      "at": "examples/weak/feasibility-report.md",
+      "found": "no next steps: no heading names \"next steps\", \"next step\", \"action plan\", \"actions\" or 3 more",
+      "basis": [
+        {
+          "text": "a team that decides to move on should know what it will test first, who it needs and how it will measure success",
+          "source": "How the discovery phase works (GOV.UK Service Manual)",
+          "url": "https://www.gov.uk/service-manual/agile-delivery/how-the-discovery-phase-works"
+        }
+      ],
+      "own": null
+    },
+    {
+      "rule": "missing-rating",
+      "level": "error",
+      "report": "examples/weak/feasibility-report.md",
+      "file": "examples/weak/feasibility-report.md",
+      "line": 12,
+      "column": 4,
+      "at": "examples/weak/feasibility-report.md:12:4",
+      "found": "the technical section \"Technical feasibility\" has no rating, such as \"Rating: feasible\", \"RAG: amber\" or a rating table row",
+      "basis": [
+        {
+          "text": "a common way to frame a feasibility study is five areas, technical, economic, legal, operational and scheduling, each with its own question to answer",
+          "source": "Feasibility study (Wikipedia), the TELOS areas",
+          "url": "https://en.wikipedia.org/wiki/Feasibility_study"
+        }
+      ],
+      "own": "a rating is read from a labelled line, a table column or the heading itself; the rating words are the tool's own"
+    },
+    {
+      "rule": "missing-rating",
+      "level": "error",
+      "report": "examples/weak/feasibility-report.md",
+      "file": "examples/weak/feasibility-report.md",
+      "line": 22,
+      "column": 1,
+      "at": "examples/weak/feasibility-report.md:22:1",
+      "found": "the rating of the schedule angle is \"TBD\", which says nothing; rate it, such as \"Rating: feasible\"",
+      "basis": [
+        {
+          "text": "a common way to frame a feasibility study is five areas, technical, economic, legal, operational and scheduling, each with its own question to answer",
+          "source": "Feasibility study (Wikipedia), the TELOS areas",
+          "url": "https://en.wikipedia.org/wiki/Feasibility_study"
+        }
+      ],
+      "own": "a rating is read from a labelled line, a table column or the heading itself; the rating words are the tool's own"
+    },
+    {
+      "rule": "risk-without-response",
+      "level": "error",
+      "report": "examples/weak/feasibility-report.md",
+      "file": "examples/weak/feasibility-report.md",
+      "line": 28,
+      "column": 3,
+      "at": "examples/weak/feasibility-report.md:28:3",
+      "found": "the risk \"The API may not support every portal feature\" has no response: none of \"accept\", \"reduce\", \"mitigate\", \"avoid\", \"transfer\" or \"design around\"",
+      "basis": [
+        {
+          "text": "a risk is treated by a chosen response, such as avoiding it, retaining it by an informed decision, changing its likelihood or its consequences, or sharing it",
+          "source": "The Orange Book: management of risk, principles and concepts (HM Treasury)",
+          "url": "https://www.gov.uk/government/publications/orange-book"
+        }
+      ],
+      "own": "the response words are the tool's own short list of the usual ways to treat a risk"
+    },
+    {
+      "rule": "risk-without-owner",
+      "level": "error",
+      "report": "examples/weak/feasibility-report.md",
+      "file": "examples/weak/feasibility-report.md",
+      "line": 28,
+      "column": 3,
+      "at": "examples/weak/feasibility-report.md:28:3",
+      "found": "the risk \"The API may not support every portal feature\" has no owner, such as \"Owner: <a name or a role>\"",
+      "basis": [
+        {
+          "text": "a plan to treat a risk says who is accountable and who is responsible for carrying it out",
+          "source": "The Orange Book: management of risk, principles and concepts (HM Treasury)",
+          "url": "https://www.gov.uk/government/publications/orange-book"
+        }
+      ],
+      "own": null
+    },
+    {
+      "rule": "risk-without-response",
+      "level": "error",
+      "report": "examples/weak/feasibility-report.md",
+      "file": "examples/weak/feasibility-report.md",
+      "line": 29,
+      "column": 3,
+      "at": "examples/weak/feasibility-report.md:29:3",
+      "found": "the risk \"The key developer may leave. Owner: TBD\" has no response: none of \"accept\", \"reduce\", \"mitigate\", \"avoid\", \"transfer\" or \"design around\"",
+      "basis": [
+        {
+          "text": "a risk is treated by a chosen response, such as avoiding it, retaining it by an informed decision, changing its likelihood or its consequences, or sharing it",
+          "source": "The Orange Book: management of risk, principles and concepts (HM Treasury)",
+          "url": "https://www.gov.uk/government/publications/orange-book"
+        }
+      ],
+      "own": "the response words are the tool's own short list of the usual ways to treat a risk"
+    },
+    {
+      "rule": "risk-without-owner",
+      "level": "error",
+      "report": "examples/weak/feasibility-report.md",
+      "file": "examples/weak/feasibility-report.md",
+      "line": 29,
+      "column": 3,
+      "at": "examples/weak/feasibility-report.md:29:3",
+      "found": "the owner of the risk \"The key developer may leave. Owner: TBD\" is \"TBD\", which names no one",
+      "basis": [
+        {
+          "text": "a plan to treat a risk says who is accountable and who is responsible for carrying it out",
+          "source": "The Orange Book: management of risk, principles and concepts (HM Treasury)",
+          "url": "https://www.gov.uk/government/publications/orange-book"
+        }
+      ],
+      "own": null
+    },
+    {
+      "rule": "conflicting-verdict",
+      "level": "error",
+      "report": "examples/weak/feasibility-report.md",
+      "file": "examples/weak/feasibility-report.md",
+      "line": 40,
+      "column": 1,
+      "at": "examples/weak/feasibility-report.md:40:1",
+      "found": "the report gives 2 different verdicts: go on line 3 and stop here",
+      "basis": [
+        {
+          "text": "discovery ends when the team has decided whether to move on to the next phase, and stopping at that point is a valid result that saves time and money",
+          "source": "How the discovery phase works (GOV.UK Service Manual)",
+          "url": "https://www.gov.uk/service-manual/agile-delivery/how-the-discovery-phase-works"
+        }
+      ],
+      "own": null
+    },
+    {
+      "rule": "unknown-verdict",
+      "level": "error",
+      "report": "examples/weak/feasibility-report.md",
+      "file": "examples/weak/feasibility-report.md",
+      "line": 42,
+      "column": 1,
+      "at": "examples/weak/feasibility-report.md:42:1",
+      "found": "the verdict \"maybe later in the quarter\" is not \"go\", \"go with changes\" or \"stop\"; start the line with one of them, or write it in bold",
+      "basis": [
+        {
+          "text": "discovery ends when the team has decided whether to move on to the next phase, and stopping at that point is a valid result that saves time and money",
+          "source": "How the discovery phase works (GOV.UK Service Manual)",
+          "url": "https://www.gov.uk/service-manual/agile-delivery/how-the-discovery-phase-works"
+        }
+      ],
+      "own": null
+    },
+    {
+      "rule": "prototype-without-results",
+      "level": "warning",
+      "report": "examples/weak/feasibility-report.md",
+      "file": "examples/weak/feasibility-report.md",
+      "line": 8,
+      "column": 1,
+      "at": "examples/weak/feasibility-report.md:8:1",
+      "found": "the report mentions a proof of concept but has no section for its results or limits, such as \"Prototype results\"",
+      "basis": [
+        {
+          "text": "prototypes are built to learn and their code is expected to be thrown away, so what counts is what a prototype showed and what it could not show",
+          "source": "How the alpha phase works (GOV.UK Service Manual)",
+          "url": "https://www.gov.uk/service-manual/agile-delivery/how-the-alpha-phase-works"
+        }
+      ],
+      "own": "a prototype mentioned in the next steps is still to be built, so those mentions do not count"
+    },
+    {
+      "rule": "single-estimate",
+      "level": "warning",
+      "report": "examples/weak/feasibility-report.md",
+      "file": "examples/weak/feasibility-report.md",
+      "line": 10,
+      "column": 9,
+      "at": "examples/weak/feasibility-report.md:10:9",
+      "found": "the estimate \"$180,000\" is one number; give a range, such as a low and a high figure",
+      "basis": [
+        {
+          "text": "appraisal weighs the costs, benefits and risks of the options, corrects for optimism bias and shows how the answer moves when the inputs are uncertain, which one figure cannot show",
+          "source": "The Green Book: appraisal and evaluation in central government (HM Treasury)",
+          "url": "https://www.gov.uk/government/publications/the-green-book-appraisal-and-evaluation-in-central-government"
+        }
+      ],
+      "own": "a line that holds a word such as \"fixed\" or \"paid\" states a known figure, not an estimate, and is not checked"
+    },
+    {
+      "rule": "unknown-rating",
+      "level": "warning",
+      "report": "examples/weak/feasibility-report.md",
+      "file": "examples/weak/feasibility-report.md",
+      "line": 18,
+      "column": 1,
+      "at": "examples/weak/feasibility-report.md:18:1",
+      "found": "the rating \"probably fine\" of the operational angle is not one of \"feasible\", \"not feasible\", \"infeasible\", \"feasible with conditions\", \"conditionally feasible\", \"partly feasible\" or 9 more",
+      "basis": [
+        {
+          "text": "a common way to frame a feasibility study is five areas, technical, economic, legal, operational and scheduling, each with its own question to answer",
+          "source": "Feasibility study (Wikipedia), the TELOS areas",
+          "url": "https://en.wikipedia.org/wiki/Feasibility_study"
+        }
+      ],
+      "own": null
+    },
+    {
+      "rule": "single-estimate",
+      "level": "warning",
+      "report": "examples/weak/feasibility-report.md",
+      "file": "examples/weak/feasibility-report.md",
+      "line": 24,
+      "column": 23,
+      "at": "examples/weak/feasibility-report.md:24:23",
+      "found": "the estimate \"16 weeks\" is one number; give a range, such as a low and a high figure",
+      "basis": [
+        {
+          "text": "appraisal weighs the costs, benefits and risks of the options, corrects for optimism bias and shows how the answer moves when the inputs are uncertain, which one figure cannot show",
+          "source": "The Green Book: appraisal and evaluation in central government (HM Treasury)",
+          "url": "https://www.gov.uk/government/publications/the-green-book-appraisal-and-evaluation-in-central-government"
+        }
+      ],
+      "own": "a line that holds a word such as \"fixed\" or \"paid\" states a known figure, not an estimate, and is not checked"
+    },
+    {
+      "rule": "untested-assumption",
+      "level": "warning",
+      "report": "examples/weak/feasibility-report.md",
+      "file": "examples/weak/feasibility-report.md",
+      "line": 34,
+      "column": 3,
+      "at": "examples/weak/feasibility-report.md:34:3",
+      "found": "the assumption \"Customers want a new portal (untested)\" is untested; test it, or say how and when it will be tested",
+      "basis": [
+        {
+          "text": "the next phase is spent testing the riskiest assumptions, so an assumption that has not been tested yet is work still to do",
+          "source": "How the alpha phase works (GOV.UK Service Manual)",
+          "url": "https://www.gov.uk/service-manual/agile-delivery/how-the-alpha-phase-works"
+        }
+      ],
+      "own": null
+    },
+    {
+      "rule": "untested-assumption",
+      "level": "warning",
+      "report": "examples/weak/feasibility-report.md",
+      "file": "examples/weak/feasibility-report.md",
+      "line": 35,
+      "column": 3,
+      "at": "examples/weak/feasibility-report.md:35:3",
+      "found": "the assumption \"The mobile API is stable. Status: open\" is open; test it, or say how and when it will be tested",
+      "basis": [
+        {
+          "text": "the next phase is spent testing the riskiest assumptions, so an assumption that has not been tested yet is work still to do",
+          "source": "How the alpha phase works (GOV.UK Service Manual)",
+          "url": "https://www.gov.uk/service-manual/agile-delivery/how-the-alpha-phase-works"
+        }
+      ],
+      "own": null
+    }
+  ],
+  "totals": {
+    "reports": 1,
+    "files": 1,
+    "findings": 18,
+    "byLevel": {
+      "error": 12,
+      "warning": 6,
+      "notice": 0
+    },
+    "hidden": 0,
+    "notListed": 0
+  },
+  "result": {
+    "pass": false,
+    "errors": 12,
+    "byLevel": {
+      "error": 12,
+      "warning": 6,
+      "notice": 0
+    },
+    "text": "FAIL - 12 errors (and 6 warnings)"
+  },
+  "notes": [],
+  "notice": "This report checks the structure of the feasibility report only: its verdict, its sections, its ratings, its risks, its assumptions and the form of its estimates. It does not judge whether the project is feasible or whether the numbers are right."
+}
